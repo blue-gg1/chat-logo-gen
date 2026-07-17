@@ -22,7 +22,7 @@ def TEXT_TO_ICON(Chunks, Text, FilePath):
 
     # Get a drawing context
     draw = ImageDraw.Draw(im_p)
-    monospace = ImageFont.truetype("fonts/david.TTF",200)
+    monospace = ImageFont.truetype("fonts/Huji-Bold.otf",200)
 
     TopOffset = -31
     SideOffSet = 0
