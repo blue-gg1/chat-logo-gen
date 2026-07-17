@@ -25,10 +25,13 @@ def TextToIcon(Chunks, Text, TemplateImage, Font, FilePath):
     LineOffset = 0
 
 
+            # draw.text((Row),Chunk,(255,255,255),font=monospace,align='right')
+
+    
     LoopCount = TopOffset
     for Chunk in TextChunks:
         Row = (SideOffSet, LoopCount)
-        draw.text((Row),Chunk,(255,255,255),font=monospace,align='right')
+        draw.text((Row),Chunk,(255,255,255),font=monospace,align='center')
         print(Row)
         LoopCount += LineOffset
 
@@ -36,7 +39,8 @@ def TextToIcon(Chunks, Text, TemplateImage, Font, FilePath):
     result_o = np.array(im_p)
     cv2.imwrite(FilePath, result_o)
 
-TextToIcon(2, """test\r\ntest""", "Template.png","fonts/3270SemiCondensed-Regular.ttf","pfp.jpg")
+TextToIcon(10, """test
+TEST""", "Template.png","fonts/3270SemiCondensed-Regular.ttf","pfp.jpg")
 
 
 
