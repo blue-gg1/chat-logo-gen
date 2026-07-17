@@ -73,7 +73,7 @@ def TestTextToIcon(Text, TemplateImage, Font, FilePath):
     #     print(Row)
     #     LoopCount += LineOffset
 
-    draw.text((0,0),Text,(70, 26, 64),font=monospace,align='center')
+    draw.text((500,500),Text,(122, 19, 25),font=monospace,align='center')
 
     
     
