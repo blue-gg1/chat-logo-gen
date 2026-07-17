@@ -71,4 +71,4 @@ def TestTextToIcon(Text, TemplateImage, Font, FilePath):
 
 TestTextToIcon("""test
  לוגו ומיתוג 
-TEST""", "Template.png","fonts/3270SemiCondensed-Regular.ttf","pfp.jpg")
+TEST""", "Template.png","fonts/david.ttf","pfp.jpg")
