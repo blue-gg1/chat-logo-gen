@@ -36,7 +36,7 @@ def TextToIcon(Chunks, Text, TemplateImage, Font, FilePath):
     result_o = np.array(im_p)
     cv2.imwrite(FilePath, result_o)
 
-TextToIcon(20, """test\r\ntest""", "Template.png","fonts/3270SemiCondensed-Regular.ttf","pfp.jpg")
+TextToIcon(2, """test\r\ntest""", "Template.png","fonts/3270SemiCondensed-Regular.ttf","pfp.jpg")
 
 
 
