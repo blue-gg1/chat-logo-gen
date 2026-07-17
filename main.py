@@ -22,7 +22,7 @@ def TEXT_TO_ICON(Chunks, Text, FilePath):
 
     # Get a drawing context
     draw = ImageDraw.Draw(im_p)
-    monospace = ImageFont.truetype("fonts/Haim new.ttf",200)
+    monospace = ImageFont.truetype("fonts/Huji-Bold.otf",200)
 
     TopOffset = -31
     SideOffSet = 0
@@ -41,10 +41,7 @@ def TEXT_TO_ICON(Chunks, Text, FilePath):
     cv2.imwrite(FilePath, result_o)
 
 TEXT_TO_ICON(20, """
-ןובשח
-ילמיסטיניפניא 
-1 
-             
+1 ןובשח             
 """, "pfp.jpg")
 
 
