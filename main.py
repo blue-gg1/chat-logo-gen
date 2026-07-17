@@ -22,7 +22,7 @@ def TEXT_TO_ICON(Chunks, Text, FilePath):
 
     # Get a drawing context
     draw = ImageDraw.Draw(im_p)
-    monospace = ImageFont.truetype("fonts/3270SemiCondensed-Regular.ttf",200)
+    monospace = ImageFont.truetype("fonts/david.TTF",200)
 
     TopOffset = -31
     SideOffSet = 0
@@ -40,7 +40,7 @@ def TEXT_TO_ICON(Chunks, Text, FilePath):
     result_o = np.array(im_p)
     cv2.imwrite(FilePath, result_o)
 
-TEXT_TO_ICON(11, "AnotherTESTLOREMIPSUMLOREMIPSUMLOREMIPSUMLOREMIPSUMLOREMIPSUMLOREMIPSUMLOREMIPSUMLOREMIPSUMLOREMIPSUMLOREMIPSUMLOREMIPSUM", "pfp.jpg")
+TEXT_TO_ICON(11, "אבגדה", "pfp.jpg")
 
 
 
