@@ -40,8 +40,12 @@ def TEXT_TO_ICON(Chunks, Text, FilePath):
     result_o = np.array(im_p)
     cv2.imwrite(FilePath, result_o)
 
-TEXT_TO_ICON(20, """()1( ילמיסטיניפניא 
-ןובשח""", "pfp.jpg")
+TEXT_TO_ICON(20, """
+ןובשח
+ילמיסטיניפניא 
+1 
+             
+""", "pfp.jpg")
 
 
 
