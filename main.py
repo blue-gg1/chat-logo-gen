@@ -27,8 +27,8 @@ def TEXT_TO_ICON(Chunks, Text, FilePath):
     monospace = ImageFont.truetype("fonts/Huji-Bold.otf",200)
 
     TopOffset = 300
-    SideOffSet = 500
-    LineOffset = 120
+    SideOffSet = 150
+    LineOffset = 0
 
 
     LoopCount = TopOffset
