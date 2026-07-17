@@ -4,13 +4,13 @@ from PIL import Image, ImageFont, ImageDraw
 import numpy as np
 
 
-def TEXT_TO_ICON(Chunks, Text, FilePath):
+def TextToIcon(Chunks, Text, TemplateImage, Font, FilePath):
     TextChunks = textwrap.wrap(Text, Chunks)
     print(TextChunks)
 
     # Open image with OpenCV
     # im_o = np.zeros((1000,1000,3), np.uint8)
-    im_o = cv2.imread("Template.png")
+    im_o = cv2.imread(TemplateImage)
 
 
     # Make into PIL Image
@@ -18,7 +18,7 @@ def TEXT_TO_ICON(Chunks, Text, FilePath):
 
     # Get a drawing context
     draw = ImageDraw.Draw(im_p)
-    monospace = ImageFont.truetype("fonts/Huji-Bold.otf",200)
+    monospace = ImageFont.truetype(Font,200)
 
     TopOffset = 300
     SideOffSet = 150
@@ -36,9 +36,10 @@ def TEXT_TO_ICON(Chunks, Text, FilePath):
     result_o = np.array(im_p)
     cv2.imwrite(FilePath, result_o)
 
-TEXT_TO_ICON(200, """
-1 ןובשח             
-""", "pfp.jpg")
+TextToIcon(20, """
+test
+test
+""", "Template.png","fonts/Huji-Bold.otf","pfp.jpg")
 
 
 
