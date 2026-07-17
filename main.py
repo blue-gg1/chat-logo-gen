@@ -75,4 +75,4 @@ def TestTextToIcon(Text, TemplateImage, Font, FilePath):
 
 StringToBeRevesed = """לוגו ומיתוג"""[::-1]
 
-TestTextToIcon(StringToBeRevesed, "Template.png","fonts/david.ttf","pfp.jpg")
+TestTextToIcon(StringToBeRevesed, "Template.png","fonts/Huji-Bold.otf","pfp.jpg")
