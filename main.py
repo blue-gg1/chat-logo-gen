@@ -69,6 +69,6 @@ def TestTextToIcon(Text, TemplateImage, Font, FilePath):
     result_o = np.array(im_p)
     cv2.imwrite(FilePath, result_o)
 
-TestTextToIcon("""test
- לוגו ומיתוג 
-TEST""", "Template.png","fonts/david.ttf","pfp.jpg")
+StringToBeRevesed = """ לוגו ומיתוג """[::-1]
+
+TestTextToIcon(StringToBeRevesed, "Template.png","fonts/david.ttf","pfp.jpg")
