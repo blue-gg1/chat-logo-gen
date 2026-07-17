@@ -64,7 +64,7 @@ def TestTextToIcon(Text, TemplateImage, Font, FilePath):
     draw.text(
         (100,250), # text space
         Text, # the words themeseves 
-        (255, 255, 255), # colour in rbg
+        (0, 0, 0), # colour in rbg
         font=monospace) # which font
 
     
