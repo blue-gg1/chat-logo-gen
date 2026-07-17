@@ -61,19 +61,7 @@ def TestTextToIcon(Text, TemplateImage, Font, FilePath):
     draw = ImageDraw.Draw(im_p)
     monospace = ImageFont.truetype(Font,200)
 
-    TopOffset = 300
-    SideOffSet = 150
-    LineOffset = 0
-
-    
-    # LoopCount = TopOffset
-    # for Chunk in TextChunks:
-    #     Row = (SideOffSet, LoopCount)
-    #     draw.text((Row),Chunk,(255,255,255),font=monospace,align='center')
-    #     print(Row)
-    #     LoopCount += LineOffset
-
-    draw.text((500,500),Text,(122, 19, 25),font=monospace,align='center')
+    draw.text((250,250),Text,(122, 19, 25),font=monospace,align='center')
 
     
     
@@ -82,4 +70,5 @@ def TestTextToIcon(Text, TemplateImage, Font, FilePath):
     cv2.imwrite(FilePath, result_o)
 
 TestTextToIcon("""test
+ לוגו ומיתוג 
 TEST""", "Template.png","fonts/3270SemiCondensed-Regular.ttf","pfp.jpg")
