@@ -1,7 +1,7 @@
-import random, string, ffmpeg, subprocess, requests, json, time, textwrap
+import random, string, subprocess, json, time, textwrap
 from datetime import datetime, date, timezone 
 import cv2
-# from PIL import Image, ImageFont, ImageDraw
+from PIL import Image, ImageFont, ImageDraw
 import numpy as np
 
 
@@ -35,34 +35,6 @@ def generate_random_alphanumeric(length):
     return random_string
 
 
-def concat_mp3s(mp3_files, output_path):
-    try:
-        # Create input streams for all files
-        input_args = [ffmpeg.input(mp3_file) for mp3_file in mp3_files]
-        # Apply the concat filter (v=0 for no video, a=1 for one audio stream)
-        audio_output = ffmpeg.concat(*input_args, v=0, a=1).output(output_path)
-        # Run the command
-        ffmpeg.run(audio_output, overwrite_output=True)
-        print(f"Successfully concatenated files to {output_path}")
-
-    except ffmpeg.Error as e:
-        print(f"FFmpeg error: {e.stderr.decode()}")
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
-
-def NATO_MP3(amount_of_letters):
-    global NATO_LETTER_STRING
-    NATO_LETTER_STRING = generate_random_alphanumeric(amount_of_letters)
-    print(f"Random alphanumeric string: {NATO_LETTER_STRING}")
-    for i in NATO_LETTER_STRING:
-        # print(FILES_NATO_MAPPING[i])
-        NATO_FILES_LIST.append(FILES_NATO_MAPPING[i])
-    concat_mp3s(NATO_FILES_LIST, NAME_LETTER_MP3)
-
-def FINAL_FILE(bumperMP3, lettersmMP3):
-    concat_mp3s([bumperMP3,lettersmMP3,bumperMP3], now_filename+".mp3")
-
-
 def TEXT_TO_ICON(Chunks, Text, FilePath):
     NATO_chunks = textwrap.wrap(Text, Chunks)
     print(NATO_chunks)
@@ -75,7 +47,7 @@ def TEXT_TO_ICON(Chunks, Text, FilePath):
 
     # Get a drawing context
     draw = ImageDraw.Draw(im_p)
-    monospace = ImageFont.truetype("3270SemiCondensed-Regular.ttf",200)
+    monospace = ImageFont.truetype("fonts/3270SemiCondensed-Regular.ttf",200)
 
     TopOffset = -31
     SideOffSet = 0
