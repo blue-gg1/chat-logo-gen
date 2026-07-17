@@ -62,11 +62,10 @@ def TestTextToIcon(Text, TemplateImage, Font, FilePath):
     monospace = ImageFont.truetype(Font,200)
 
     draw.text(
-        (250,250), # text space
+        (100,250), # text space
         Text, # the words themeseves 
         (122, 19, 25), # colour in rbg
-        font=monospace, # which font
-        align='right') # alignement (does nothing lmao)
+        font=monospace) # which font
 
     
     
