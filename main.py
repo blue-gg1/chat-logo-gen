@@ -61,7 +61,12 @@ def TestTextToIcon(Text, TemplateImage, Font, FilePath):
     draw = ImageDraw.Draw(im_p)
     monospace = ImageFont.truetype(Font,200)
 
-    draw.text((250,250),Text,(122, 19, 25),font=monospace,align='center')
+    draw.text(
+        (250,250), # text space
+        Text, # the words themeseves 
+        (122, 19, 25), # colour in rbg
+        font=monospace, # which font
+        align='right') # alignement (does nothing lmao)
 
     
     
@@ -69,6 +74,6 @@ def TestTextToIcon(Text, TemplateImage, Font, FilePath):
     result_o = np.array(im_p)
     cv2.imwrite(FilePath, result_o)
 
-StringToBeRevesed = """ לוגו ומיתוג """[::-1]
+StringToBeRevesed = """לוגו ומיתוג"""[::-1]
 
 TestTextToIcon(StringToBeRevesed, "Template.png","fonts/david.ttf","pfp.jpg")
