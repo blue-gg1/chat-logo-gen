@@ -1,13 +1,7 @@
-import random, string, subprocess, json, time, textwrap
-from datetime import datetime, date, timezone 
+import textwrap
 import cv2
 from PIL import Image, ImageFont, ImageDraw
 import numpy as np
-
-def generate_random_alphanumeric(length):
-    characters = string.ascii_uppercase
-    random_string = ''.join(random.choices(characters, k=length))
-    return random_string
 
 
 def TEXT_TO_ICON(Chunks, Text, FilePath):
@@ -42,7 +36,7 @@ def TEXT_TO_ICON(Chunks, Text, FilePath):
     result_o = np.array(im_p)
     cv2.imwrite(FilePath, result_o)
 
-TEXT_TO_ICON(20, """
+TEXT_TO_ICON(200, """
 1 ןובשח             
 """, "pfp.jpg")
 
