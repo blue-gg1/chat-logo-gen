@@ -15,7 +15,9 @@ def TEXT_TO_ICON(Chunks, Text, FilePath):
     print(TextChunks)
 
     # Open image with OpenCV
-    im_o = np.zeros((1000,1000,3), np.uint8)
+    # im_o = np.zeros((1000,1000,3), np.uint8)
+    im_o = cv2.imread("Template.png")
+
 
     # Make into PIL Image
     im_p = Image.fromarray(im_o)
@@ -24,8 +26,8 @@ def TEXT_TO_ICON(Chunks, Text, FilePath):
     draw = ImageDraw.Draw(im_p)
     monospace = ImageFont.truetype("fonts/Huji-Bold.otf",200)
 
-    TopOffset = -31
-    SideOffSet = 0
+    TopOffset = 300
+    SideOffSet = 500
     LineOffset = 120
 
 
