@@ -25,7 +25,7 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
         # (0, 0, 0), # opacity in rbg ?
         (255,255,255), # opacity in rbg ?
         font=monospace, # which font
-        align='center') 
+        align='justify') 
 
     # #Save image
     result_o = np.array(im_p)
