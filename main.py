@@ -58,16 +58,15 @@ def TestTextToIcon(Text, TemplateImage, Font, FilePath):
 
     # Get a drawing context
     draw = ImageDraw.Draw(im_p)
-    monospace = ImageFont.truetype(Font,100)
+    monospace = ImageFont.truetype(Font,150)
 
     draw.text(
         (100,250), # text space
         Text, # the words themeseves 
-        (0, 0, 0), # colour in rbg
-        font=monospace) # which font
+        (0, 0, 0), # opacity in rbg ?
+        font=monospace, # which font
+        align='center') 
 
-    
-    
     # #Save image
     result_o = np.array(im_p)
     cv2.imwrite(FilePath, result_o)
