@@ -90,5 +90,8 @@ print(ShantonObject[0]['name']['he'])
 
 StringToBeRevesed = (ShantonObject[0]['name']['he']).replace(' ', '\n')
 
+for line in StringToBeRevesed.splitlines():
+    print(line[::-1])
 
-TestTextToIcon(StringToBeRevesed, "Template.png","fonts/Huji-Bold.otf","pfp.jpg")
+
+# TestTextToIcon(StringToBeRevesed, "Template.png","fonts/Huji-Bold.otf","pfp.jpg")
