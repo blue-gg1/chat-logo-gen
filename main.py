@@ -29,27 +29,26 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
     result_o = np.array(im_p)
     cv2.imwrite(FilePath, result_o)
 
-def GetNamesFromShnaton(CourseNumberList: list, Year: int):
-    for Number in CourseNumberList:
-        ShnatonJson = requests.get("https://shnaton.huji.ac.il/api/courses/code/80131?year=2027")
-        ShantonObject = json.loads(ShnatonJson.content)
-        if ShantonObject[0]['code'] == '80131':
-            print("good")
-        else:
-            print("bad")
-
-        return(ShantonObject[0]['name']['he'])
+def GetNamesFromShnaton(CourseNumber: int, Year: int):
+    ShnatonJson = requests.get("https://shnaton.huji.ac.il/api/courses/code/"+CourseNumber+"?year="+str(Year))
+    ShantonObject = json.loads(ShnatonJson.content)
+    if ShantonObject[0]['code'] == CourseNumber:
+        print(CourseNumber + "good")
+    else:
+        print(CourseNumber + "bad")
+    return(ShantonObject[0]['name']['he'])
 
 def FUCKTheAcademyoftheHebrewLanguage(NameOfClass):
-    StringToBeRevesed = ((NameOfClass[0]['name']['he']).replace(' ', '\n')).replace('(',"}").replace(')',"{")
+    # StringToBeRevesed = ((NameOfClass[0]['name']['he']).replace(' ', '\n')).replace('(',"}").replace(')',"{")
+    StringToBeRevesed = ((NameOfClass).replace(' ', '\n')).replace('(',"}").replace(')',"{")
     return(StringToBeRevesed)
 
-def AddTextToImmage(Text):
+def AddTextToImmage(Text, OutputFile):
     StringForImage = ""
     for line in Text.splitlines():
         print(line[::-1])
         StringForImage += (line[::-1])+"\n"
-    TextToIcon(StringForImage, "Template.png","fonts/Huji-Bold.otf","pfp.jpg")
+    TextToIcon(StringForImage, "Template.png", "fonts/Huji-Bold.otf",OutputFile)
 
 
 def GetCourseFromFile():
@@ -58,4 +57,9 @@ def GetCourseFromFile():
     return(SourceData)
 
 CourseList = GetCourseFromFile()
-print(CourseList)
+
+for Course in CourseList:
+    print(Course)
+    CourseName = GetNamesFromShnaton(Course, 2027)
+    TextForImage = FUCKTheAcademyoftheHebrewLanguage(CourseName)
+    AddTextToImmage(TextForImage, Course)
