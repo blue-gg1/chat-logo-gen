@@ -54,7 +54,8 @@ def AddTextToImmage(Text):
 
 def GetCourseFromFile():
     with open("source",'r') as SourceList:
-        for i in SourceList:
-            print(i)
+        SourceData = SourceList.read().splitlines()
+    return(SourceData)
 
-GetCourseFromFile()
+CourseList = GetCourseFromFile()
+print(CourseList)
