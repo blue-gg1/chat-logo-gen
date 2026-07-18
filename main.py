@@ -61,7 +61,7 @@ def TestTextToIcon(Text, TemplateImage, Font, FilePath):
     monospace = ImageFont.truetype(Font,150)
 
     draw.text(
-        (100,250), # text space
+        (90,250), # text space
         Text, # the words themeseves 
         (0, 0, 0), # opacity in rbg ?
         font=monospace, # which font
@@ -87,7 +87,7 @@ print(ShantonObject[0]['name']['he'])
 
 # StringToBeRevesed = (ShantonObject[0]['name']['he']).replace(' ', '\n')[::-1]
 
-StringToBeRevesed = (ShantonObject[0]['name']['he']).replace(' ', '\n')
+StringToBeRevesed = ((ShantonObject[0]['name']['he']).replace(' ', '\n')).replace('(',"(").replace(')',"(")
 
 
 StringForImage = ""
