@@ -7,8 +7,8 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
     print(Text)
 
     # Open image with OpenCV
-    # im_o = np.zeros((1000,1000,3), np.uint8)
-    im_o = cv2.imread(TemplateImage)
+    im_o = np.zeros((1000,1000,3), np.uint8)
+    # im_o = cv2.imread(TemplateImage)
 
 
     # Make into PIL Image
@@ -22,7 +22,8 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
         # (90,220), # text space
         (180,200), # text space
         Text, # the words themeseves 
-        (0, 0, 0), # opacity in rbg ?
+        # (0, 0, 0), # opacity in rbg ?
+        (255,255,255), # opacity in rbg ?
         font=monospace, # which font
         align='center') 
 
