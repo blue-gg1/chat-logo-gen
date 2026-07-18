@@ -20,7 +20,7 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
 
     draw.text(
         # (90,220), # text space
-        (100,250), # text space
+        (200,250), # text space
         Text, # the words themeseves 
         (0, 0, 0), # opacity in rbg ?
         font=monospace, # which font
