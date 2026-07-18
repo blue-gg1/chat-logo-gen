@@ -86,6 +86,9 @@ else:
 print(ShantonObject[0]['name']['he'])
 
 
-StringToBeRevesed = ShantonObject[0]['name']['he'][::-1]
+# StringToBeRevesed = (ShantonObject[0]['name']['he']).replace(' ', '\n')[::-1]
 
-TestTextToIcon(StringToBeRevesed.replace(' ', '\n'), "Template.png","fonts/Huji-Bold.otf","pfp.jpg")
+StringToBeRevesed = (ShantonObject[0]['name']['he']).replace(' ', '\n')
+
+
+TestTextToIcon(StringToBeRevesed, "Template.png","fonts/Huji-Bold.otf","pfp.jpg")
