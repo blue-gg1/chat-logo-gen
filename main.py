@@ -58,7 +58,7 @@ def TestTextToIcon(Text, TemplateImage, Font, FilePath):
 
     # Get a drawing context
     draw = ImageDraw.Draw(im_p)
-    monospace = ImageFont.truetype(Font,200)
+    monospace = ImageFont.truetype(Font,100)
 
     draw.text(
         (100,250), # text space
@@ -72,9 +72,6 @@ def TestTextToIcon(Text, TemplateImage, Font, FilePath):
     result_o = np.array(im_p)
     cv2.imwrite(FilePath, result_o)
 
-StringToBeRevesed = """לוגו ומיתוג"""[::-1]
-
-# TestTextToIcon(StringToBeRevesed, "Template.png","fonts/Huji-Bold.otf","pfp.jpg")
 
 ShnatonJson = requests.get("https://shnaton.huji.ac.il/api/courses/code/80131?year=2027")
 
@@ -85,3 +82,10 @@ if ShantonObject[0]['code'] == '80131':
     print("good")
 else:
     print("bad")
+
+print(ShantonObject[0]['name']['he'])
+
+
+StringToBeRevesed = ShantonObject[0]['name']['he'][::-1]
+
+TestTextToIcon(StringToBeRevesed, "Template.png","fonts/Huji-Bold.otf","pfp.jpg")
