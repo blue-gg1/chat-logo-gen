@@ -48,7 +48,7 @@ def AddTextToImmage(Text, OutputFile):
     for line in Text.splitlines():
         print(line[::-1])
         StringForImage += (line[::-1])+"\n"
-    TextToIcon(StringForImage, "Template.png", "fonts/Huji-Bold.otf",OutputFile)
+    TextToIcon(StringForImage, "Template.png", "fonts/Huji-Bold.otf", OutputFile)
 
 
 def GetCourseFromFile():
@@ -62,4 +62,4 @@ for Course in CourseList:
     print(Course)
     CourseName = GetNamesFromShnaton(Course, 2027)
     TextForImage = FUCKTheAcademyoftheHebrewLanguage(CourseName)
-    AddTextToImmage(TextForImage, Course)
+    AddTextToImmage(TextForImage, Course+".png")
