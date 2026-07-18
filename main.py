@@ -1,5 +1,4 @@
-import textwrap
-import cv2
+import textwrap, requests, cv2
 from PIL import Image, ImageFont, ImageDraw
 import numpy as np
 
@@ -75,4 +74,7 @@ def TestTextToIcon(Text, TemplateImage, Font, FilePath):
 
 StringToBeRevesed = """לוגו ומיתוג"""[::-1]
 
-TestTextToIcon(StringToBeRevesed, "Template.png","fonts/Huji-Bold.otf","pfp.jpg")
+# TestTextToIcon(StringToBeRevesed, "Template.png","fonts/Huji-Bold.otf","pfp.jpg")
+
+r = requests.get("https://shnaton.huji.ac.il/api/courses/code/80131?year=2027")
+print(r.content)
