@@ -1,4 +1,4 @@
-import textwrap, requests, cv2
+import textwrap, requests, cv2, json
 from PIL import Image, ImageFont, ImageDraw
 import numpy as np
 
@@ -76,5 +76,12 @@ StringToBeRevesed = """לוגו ומיתוג"""[::-1]
 
 # TestTextToIcon(StringToBeRevesed, "Template.png","fonts/Huji-Bold.otf","pfp.jpg")
 
-r = requests.get("https://shnaton.huji.ac.il/api/courses/code/80131?year=2027")
-print(r.content)
+ShnatonJson = requests.get("https://shnaton.huji.ac.il/api/courses/code/80131?year=2027")
+
+ShantonObject = json.loads(ShnatonJson.content)
+print(ShantonObject[0]['code'])
+
+if ShantonObject[0]['code'] == '80131':
+    print("good")
+else:
+    print("bad")
