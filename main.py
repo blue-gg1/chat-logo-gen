@@ -25,7 +25,7 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
         # (0, 0, 0), # opacity in rbg ?
         (255,255,255), # opacity in rbg ?
         font=monospace, # which font
-        align='justify') 
+        align='right') 
 
     # #Save image
     result_o = np.array(im_p)
@@ -42,7 +42,7 @@ def GetNamesFromShnaton(CourseNumber: int, Year: int):
 
 def FUCKTheAcademyoftheHebrewLanguage(NameOfClass):
     # StringToBeRevesed = ((NameOfClass[0]['name']['he']).replace(' ', '\n')).replace('(',"}").replace(')',"{")
-    StringToBeRevesed = ((NameOfClass).replace(' ', '\n')).replace('(',"}").replace(')',"{")
+    StringToBeRevesed = (((NameOfClass).replace(' ', '\n')).replace('(',"}").replace(')',"{")).replace("")
     return(StringToBeRevesed)
 
 def AddTextToImmage(Text, OutputFile):
