@@ -87,7 +87,7 @@ print(ShantonObject[0]['name']['he'])
 
 # StringToBeRevesed = (ShantonObject[0]['name']['he']).replace(' ', '\n')[::-1]
 
-StringToBeRevesed = ((ShantonObject[0]['name']['he']).replace(' ', '\n')).replace('(',"(").replace(')',"(")
+StringToBeRevesed = ((ShantonObject[0]['name']['he']).replace(' ', '\n')).replace('(',")").replace(')',"(")
 
 
 StringForImage = ""
