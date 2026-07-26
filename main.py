@@ -21,7 +21,7 @@ def TextToIcon(Text, TemplateImage, Font, FilePath, CourseSeed):
 
     draw.rectangle(
         (0,0,1000,1000),
-        fill = (randint(0,255),randint(0,255),randint(0,255))
+        fill = (randint(200,255),randint(200,255),randint(200,255))
     )
 
     draw.ellipse(
