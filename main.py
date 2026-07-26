@@ -83,7 +83,8 @@ CourseList = GetCourseFromFile()
 for Course in CourseList:
     print(Course)
     CourseName = GetNamesFromShnaton(Course, 2027)
-    TextForImage = FUCKTheAcademyoftheHebrewLanguage(CourseName)
+    TextForImage = get_display(CourseName)
+    # TextForImage = FUCKTheAcademyoftheHebrewLanguage(CourseName)
     with open("FUCKYOU.txt", "a", encoding="utf-8") as FUCKYOU:
         FUCKYOU.writelines(TextForImage)
     FUCKYOU.close
