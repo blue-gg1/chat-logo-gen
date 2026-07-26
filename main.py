@@ -19,17 +19,25 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
     draw = ImageDraw.Draw(im_p)
     monospace = ImageFont.truetype(Font,150)
 
-    draw.text(
-        # (90,220), # text space
-        (100,100), # text space GOOD for 1000x1000
-        Text, # the words themeseves 
-        # (0, 0, 0), # opacity in rbg ?
+    draw.multiline_text(
+        (im_p.width / 2, im_p.height / 2),
+        Text,
         fill="white",
-        # (255,255,255), # opacity in rbg ?
-        font=monospace, # which font
-        align='center',
-        anchor="la"
-        ) 
+        font=monospace,
+        align="center",
+        anchor="mm"   # middle-middle
+    )
+    # draw.text(
+    #     # (90,220), # text space
+    #     (100,100), # text space GOOD for 1000x1000
+    #     Text, # the words themeseves 
+    #     # (0, 0, 0), # opacity in rbg ?
+    #     fill="white",
+    #     # (255,255,255), # opacity in rbg ?
+    #     font=monospace, # which font
+    #     align='center',
+    #     anchor="la"
+    #     ) 
 
 
     # #Save image
