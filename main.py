@@ -8,8 +8,8 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
     print(Text)
 
     # Open image with OpenCV
-    im_o = np.zeros((1000,1000,3), np.uint8)
-    # im_o = cv2.imread(TemplateImage)
+    # im_o = np.zeros((1000,1000,3), np.uint8)
+    im_o = cv2.imread(TemplateImage)
 
 
     # Make into PIL Image
@@ -17,7 +17,7 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
 
     # Get a drawing context
     draw = ImageDraw.Draw(im_p)
-    monospace = ImageFont.truetype(Font,150)
+    monospace = ImageFont.truetype(Font,100)
 
     draw.multiline_text(
         (im_p.width / 2, im_p.height / 2),
@@ -59,7 +59,7 @@ def FUCKTheAcademyoftheHebrewLanguage(NameOfClass):
         
     return(StringToBeRevesed)
 
-def AddTextToImmage(Text, OutputFile):
+def AddTextToImage(Text, OutputFile):
     StringForImage = ""
     for line in Text.splitlines():
         print(line[::-1])
@@ -83,4 +83,4 @@ for Course in CourseList:
     # TextForImage = get_display(CourseName)
     TextForImage = FUCKTheAcademyoftheHebrewLanguage(CourseName)
 
-    AddTextToImmage(TextForImage, Course+".png")
+    AddTextToImage(TextForImage, Course+".png")
