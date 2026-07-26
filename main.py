@@ -22,7 +22,7 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
     draw.text(
         # (90,220), # text space
         # (180,200), # text space GOOD for 1000x1000
-        (1000,0), # text space
+        (0,0), # text space
         Text, # the words themeseves 
         # (0, 0, 0), # opacity in rbg ?
         fill="white",
@@ -31,9 +31,7 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
         align='right',
         anchor="la"
         ) 
-    draw.ellipse(
-        (995, -5, 1005, 5), 
-        fill="red")
+
 
     # #Save image
     result_o = np.array(im_p)
@@ -65,7 +63,7 @@ def AddTextToImmage(Text, OutputFile):
     for line in Text.splitlines():
         print(line[::-1])
         StringForImage += (line[::-1])+"\n"
-    TextToIcon(StringForImage, "Template.png", "fonts/Huji-Bold.otf", OutputFile)
+    TextToIcon(StringForImage, "Template.png", "fonts/David Regular.TTF", OutputFile)
 
 
 def GetCourseFromFile():
