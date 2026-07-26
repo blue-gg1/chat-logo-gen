@@ -43,7 +43,8 @@ def GetNamesFromShnaton(CourseNumber: int, Year: int):
 
 def FUCKTheAcademyoftheHebrewLanguage(NameOfClass):
     # StringToBeRevesed = ((NameOfClass[0]['name']['he']).replace(' ', '\n')).replace('(',"}").replace(')',"{")
-    StringToBeRevesed = (((NameOfClass).replace(' ', '\n')).replace('(',"}").replace(')',"{")).replace("")
+    
+    StringToBeRevesed = (((NameOfClass).replace(' ', '\n')).replace('(',"}").replace(')',"{")).replace("","")
     return(StringToBeRevesed)
 
 def AddTextToImmage(Text, OutputFile):
