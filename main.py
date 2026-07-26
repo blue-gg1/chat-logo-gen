@@ -27,7 +27,7 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
         fill="white",
         # (255,255,255), # opacity in rbg ?
         font=monospace, # which font
-        align='centre',
+        align='center',
         anchor="la"
         ) 
 
