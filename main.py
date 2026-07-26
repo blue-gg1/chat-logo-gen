@@ -8,7 +8,7 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
     print(Text)
 
     # Open image with OpenCV
-    im_o = np.zeros((1000,1000,3), np.uint8)
+    im_o = np.zeros((2000,2000,3), np.uint8)
     # im_o = cv2.imread(TemplateImage)
 
 
@@ -17,10 +17,11 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
 
     # Get a drawing context
     draw = ImageDraw.Draw(im_p)
-    monospace = ImageFont.truetype(Font,150)
+    monospace = ImageFont.FreeTypeFont(Font,150)
 
     draw.text(
         # (90,220), # text space
+        # (180,200), # text space GOOD for 1000x1000
         (180,200), # text space
         Text, # the words themeseves 
         # (0, 0, 0), # opacity in rbg ?
@@ -72,4 +73,8 @@ for Course in CourseList:
     print(Course)
     CourseName = GetNamesFromShnaton(Course, 2027)
     TextForImage = FUCKTheAcademyoftheHebrewLanguage(CourseName)
+    with open("FUCKYOU.txt", "a", encoding="utf-8") as FUCKYOU:
+        FUCKYOU.writelines(TextForImage)
+    FUCKYOU.close
+
     AddTextToImmage(TextForImage, Course+".png")
