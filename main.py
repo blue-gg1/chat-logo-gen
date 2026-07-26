@@ -32,7 +32,9 @@ def TextToIcon(Text, TemplateImage, Font, FilePath, CourseSeed):
         fill="black",
         font=monospace,
         align="center",
-        anchor="mm"   # middle-middle
+        anchor="mm",
+        stroke_width=10,
+        stroke_fill="white"
     )
     # draw.text(
     #     # (90,220), # text space
