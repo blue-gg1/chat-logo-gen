@@ -38,21 +38,10 @@ def TextToIcon(Text, TemplateImage, Font, FilePath, CourseSeed):
         font=monospace,
         align="center",
         anchor="mm", # make it the middle
-        stroke_width=3, # add the outline
-        stroke_fill="black" # make the outline white
-    )
-
-    draw.multiline_text( # place the text
-        # (im_p.width / 2, (im_p.height / 2)+40),
-        (im_p.width / 2, (im_p.height / 2)), # make it be the middle 
-        Text,
-        fill="black", # make the text black
-        font=monospace,
-        align="center",
-        anchor="mm", # make it the middle
-        stroke_width=6, # add the outline
+        stroke_width=4, # add the outline
         stroke_fill="white" # make the outline white
     )
+
 
     # old manual placement of the text
     # draw.text(
@@ -107,7 +96,7 @@ def AddTextToImageAndDealWithString(Text, OutputFile, Year, CouseNumber):
         # StringForImage += (line[::-1])+"\n"
         StringForImage += get_display(line)+"\n" # revese the string in a way that does not change any latin text
         
-    TextToIcon(StringForImage+Year, "Template.png", "fonts/frank.ttf", OutputFile, CouseNumber)
+    TextToIcon(StringForImage+Year, "Template.png", "fonts/DavidLibre-Bold.ttf", OutputFile, CouseNumber)
 
 def GetCourseFromFile():
     # read the file from disk.
