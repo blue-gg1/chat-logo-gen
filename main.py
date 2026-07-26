@@ -22,7 +22,8 @@ def TextToIcon(Text, TemplateImage, Font, FilePath, CourseSeed):
     draw.ellipse(
         (20, 20, 1000, 1000), 
         fill = (randint(0,255),randint(0,255),randint(0,255)), 
-        outline ='blue')
+        outline = (randint(0,255),randint(0,255),randint(0,255))
+    )
 
     draw.multiline_text(
         # (im_p.width / 2, (im_p.height / 2)+40),
