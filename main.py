@@ -3,6 +3,7 @@ from PIL import Image, ImageFont, ImageDraw
 import numpy as np
 
 
+
 def TextToIcon(Text, TemplateImage, Font, FilePath):
     print(Text)
 
