@@ -15,10 +15,10 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
 
     # Get a drawing context
     draw = ImageDraw.Draw(im_p)
-    monospace = ImageFont.truetype(Font,150)
+    monospace = ImageFont.truetype(Font,125)
 
     draw.multiline_text(
-        (im_p.width / 2, im_p.height / 2),
+        (im_p.width / 2, (im_p.height / 2)+10),
         Text,
         fill="white",
         font=monospace,
