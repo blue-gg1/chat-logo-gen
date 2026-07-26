@@ -17,7 +17,7 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
 
     # Get a drawing context
     draw = ImageDraw.Draw(im_p)
-    monospace = ImageFont.FreeTypeFont(Font,150)
+    monospace = ImageFont.truetype(Font,150)
 
     draw.text(
         # (90,220), # text space
