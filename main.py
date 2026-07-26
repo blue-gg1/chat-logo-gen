@@ -39,8 +39,21 @@ def TextToIcon(Text, TemplateImage, Font, FilePath, CourseSeed):
         align="center",
         anchor="mm", # make it the middle
         stroke_width=3, # add the outline
+        stroke_fill="black" # make the outline white
+    )
+
+    draw.multiline_text( # place the text
+        # (im_p.width / 2, (im_p.height / 2)+40),
+        (im_p.width / 2, (im_p.height / 2)), # make it be the middle 
+        Text,
+        fill="black", # make the text black
+        font=monospace,
+        align="center",
+        anchor="mm", # make it the middle
+        stroke_width=6, # add the outline
         stroke_fill="white" # make the outline white
     )
+
     # old manual placement of the text
     # draw.text(
     #     # (90,220), # text space
