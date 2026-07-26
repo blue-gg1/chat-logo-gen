@@ -16,7 +16,7 @@ def TextToIcon(Text, TemplateImage, Font, FilePath, CourseSeed):
 
     # Get a drawing context
     draw = ImageDraw.Draw(im_p)
-    monospace = ImageFont.truetype(Font,125)
+    monospace = ImageFont.truetype(Font,130)
 
     draw.rectangle( # make the backaround a solid colour
         (0,0,1000,1000),
@@ -38,7 +38,7 @@ def TextToIcon(Text, TemplateImage, Font, FilePath, CourseSeed):
         font=monospace,
         align="center",
         anchor="mm", # make it the middle
-        stroke_width=7, # add the outline
+        stroke_width=5, # add the outline
         stroke_fill="white" # make the outline white
     )
     # old manual placement of the text
