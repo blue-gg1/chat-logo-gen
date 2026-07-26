@@ -55,13 +55,7 @@ def GetNamesFromShnaton(CourseNumber: int, Year: int):
 
 def FUCKTheAcademyoftheHebrewLanguage(NameOfClass):
     # StringToBeRevesed = ((NameOfClass[0]['name']['he']).replace(' ', '\n')).replace('(',"}").replace(')',"{")
-    
     StringToBeRevesed = (((NameOfClass).replace(' ', '\n')).replace('(',"").replace(')',"")).replace("","")
-
-
-    with open("FUCKME.txt", "a", encoding="utf-8") as FUCKME:
-        FUCKME.writelines(StringToBeRevesed)
-    FUCKME.close
         
     return(StringToBeRevesed)
 
@@ -88,8 +82,5 @@ for Course in CourseList:
     CourseName = GetNamesFromShnaton(Course, 2027)
     # TextForImage = get_display(CourseName)
     TextForImage = FUCKTheAcademyoftheHebrewLanguage(CourseName)
-    with open("FUCKYOU.txt", "a", encoding="utf-8") as FUCKYOU:
-        FUCKYOU.writelines(TextForImage)
-    FUCKYOU.close
 
     AddTextToImmage(TextForImage, Course+".png")
