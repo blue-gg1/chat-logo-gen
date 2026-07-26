@@ -19,6 +19,11 @@ def TextToIcon(Text, TemplateImage, Font, FilePath, CourseSeed):
     draw = ImageDraw.Draw(im_p)
     monospace = ImageFont.truetype(Font,125)
 
+    draw.rectangle(
+        (0,0,1000,1000),
+        fill = (randint(0,255),randint(0,255),randint(0,255))
+    )
+
     draw.ellipse(
         (20, 20, 1000, 1000), 
         fill = (randint(0,255),randint(0,255),randint(0,255)), 
