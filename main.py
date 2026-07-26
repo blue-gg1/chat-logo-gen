@@ -4,9 +4,7 @@ import numpy as np
 from bidi.algorithm import get_display
 
 
-def TextToIcon(Text, TemplateImage, Font, FilePath, Year):
-    TextAndYear = Text+" "+Year
-
+def TextToIcon(Text, TemplateImage, Font, FilePath):
     # Open image with OpenCV
     # im_o = np.zeros((1000,1000,3), np.uint8)
     im_o = cv2.imread(TemplateImage)
@@ -17,11 +15,11 @@ def TextToIcon(Text, TemplateImage, Font, FilePath, Year):
 
     # Get a drawing context
     draw = ImageDraw.Draw(im_p)
-    monospace = ImageFont.truetype(Font,100)
+    monospace = ImageFont.truetype(Font,150)
 
     draw.multiline_text(
         (im_p.width / 2, im_p.height / 2),
-        TextAndYear,
+        Text,
         fill="white",
         font=monospace,
         align="center",
@@ -59,7 +57,7 @@ def FUCKTheAcademyoftheHebrewLanguage(NameOfClass):
         
     return(StringToBeRevesed)
 
-def AddTextToImage(Text, OutputFile, Year):
+def AddTextToImage(Text, OutputFile):
     StringForImage = ""
     for line in Text.splitlines():
         print(line[::-1])
@@ -67,7 +65,7 @@ def AddTextToImage(Text, OutputFile, Year):
         # StringForImage += (line[::-1])+"\n"
         StringForImage += get_display(line)+"\n"
         
-    TextToIcon(StringForImage, "Template.png", "fonts/Alef-Bold.ttf", Year, OutputFile)
+    TextToIcon(StringForImage, "Template.png", "fonts/Alef-Bold.ttf", OutputFile)
 
 
 def GetCourseFromFile():
@@ -83,4 +81,4 @@ for Course in CourseList:
     # TextForImage = get_display(CourseName)
     TextForImage = FUCKTheAcademyoftheHebrewLanguage(CourseName)
 
-    AddTextToImage(TextForImage, Course+".png", "2026-2027")
+    AddTextToImage(TextForImage, Course+".png")
