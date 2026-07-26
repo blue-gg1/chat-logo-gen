@@ -38,7 +38,7 @@ def TextToIcon(Text, TemplateImage, Font, FilePath, CourseSeed):
         font=monospace,
         align="center",
         anchor="mm", # make it the middle
-        stroke_width=5, # add the outline
+        stroke_width=3, # add the outline
         stroke_fill="white" # make the outline white
     )
     # old manual placement of the text
