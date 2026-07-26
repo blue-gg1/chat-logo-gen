@@ -44,12 +44,17 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
 
 def GetNamesFromShnaton(CourseNumber: int, Year: int):
     ShnatonJson = requests.get("https://shnaton.huji.ac.il/api/courses/code/"+CourseNumber+"?year="+str(Year))
-    ShantonObject = json.loads(ShnatonJson.content)
-    if ShantonObject[0]['code'] == CourseNumber:
-        print(CourseNumber + "good")
+
+    if ShnatonJson.status_code == 200:
+        ShantonObject = json.loads(ShnatonJson.content)
+        if ShantonObject[0]['code'] == CourseNumber:
+            print(CourseNumber + "good")
+        else:
+            print(CourseNumber + "bad")
+            exit()
+        return(ShantonObject[0]['name']['he'])
     else:
-        print(CourseNumber + "bad")
-    return(ShantonObject[0]['name']['he'])
+        exit()
 
 def FUCKTheAcademyoftheHebrewLanguage(NameOfClass):
     # StringToBeRevesed = ((NameOfClass[0]['name']['he']).replace(' ', '\n')).replace('(',"}").replace(')',"{")
