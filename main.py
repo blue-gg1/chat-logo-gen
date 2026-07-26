@@ -80,7 +80,9 @@ def StringCleaner(NameOfClass):
     # TODO: count the amount of spaces as not to insert too many line retuns 
 
     # StringToBeRevesed = ((NameOfClass[0]['name']['he']).replace(' ', '\n')).replace('(',"}").replace(')',"{")
-    StringToBeRevesed = (((NameOfClass).replace(' ', '\n')).replace('(',"").replace(')',"")).replace("-","")
+    # StringToBeRevesed = (((NameOfClass).replace(' ', '\n')).replace('(',"").replace(')',"")).replace("-","")
+
+    StringToBeRevesed = ((NameOfClass).replace(' ', '\n')).replace("-","")
         
     return(StringToBeRevesed)
 
