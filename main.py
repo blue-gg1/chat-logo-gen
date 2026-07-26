@@ -4,7 +4,7 @@ import numpy as np
 from bidi.algorithm import get_display
 
 
-def TextToIcon(Text, TemplateImage, Font, FilePath):
+def TextToIcon(Text, TemplateImage, Font, FilePath, CourseSeed):
     # Open image with OpenCV
     im_o = np.zeros((1000,1000,3), np.uint8)
 
@@ -18,13 +18,16 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
     draw = ImageDraw.Draw(im_p)
     monospace = ImageFont.truetype(Font,125)
 
-    draw.ellipse((20, 20, 1000, 1000), fill = 'blue', outline ='blue')
+    draw.ellipse(
+        (20, 20, 1000, 1000), 
+        fill = (255,255,255), 
+        outline ='blue')
 
     draw.multiline_text(
         # (im_p.width / 2, (im_p.height / 2)+40),
         (im_p.width / 2, (im_p.height / 2)),
         Text,
-        fill="white",
+        fill="black",
         font=monospace,
         align="center",
         anchor="mm"   # middle-middle
@@ -66,7 +69,7 @@ def FUCKTheAcademyoftheHebrewLanguage(NameOfClass):
         
     return(StringToBeRevesed)
 
-def AddTextToImage(Text, OutputFile, Year):
+def AddTextToImage(Text, OutputFile, Year, CouseNumber):
     StringForImage = ""
     for line in Text.splitlines():
         print(line[::-1])
@@ -74,7 +77,7 @@ def AddTextToImage(Text, OutputFile, Year):
         # StringForImage += (line[::-1])+"\n"
         StringForImage += get_display(line)+"\n"
         
-    TextToIcon(StringForImage+Year, "Template.png", "fonts/Alef-Bold.ttf", OutputFile)
+    TextToIcon(StringForImage+Year, "Template.png", "fonts/Alef-Bold.ttf", OutputFile, CouseNumber)
 
 
 def GetCourseFromFile():
@@ -90,4 +93,4 @@ for Course in CourseList:
     # TextForImage = get_display(CourseName)
     TextForImage = FUCKTheAcademyoftheHebrewLanguage(CourseName)
 
-    AddTextToImage(TextForImage, Course+".png", "2026-2027")
+    AddTextToImage(TextForImage, Course+".png", "2026-2027", Course)
