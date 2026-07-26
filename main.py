@@ -22,13 +22,12 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
     draw.text(
         # (90,220), # text space
         (200,200), # text space GOOD for 1000x1000
-        # (0,0), # text space
         Text, # the words themeseves 
         # (0, 0, 0), # opacity in rbg ?
         fill="white",
         # (255,255,255), # opacity in rbg ?
         font=monospace, # which font
-        align='right',
+        align='left',
         anchor="la"
         ) 
 
@@ -63,7 +62,7 @@ def AddTextToImmage(Text, OutputFile):
     for line in Text.splitlines():
         print(line[::-1])
         StringForImage += (line[::-1])+"\n"
-    TextToIcon(StringForImage, "Template.png", "fonts/Haim new.ttf", OutputFile)
+    TextToIcon(StringForImage, "Template.png", "fonts/Huji-Bold.otf", OutputFile)
 
 
 def GetCourseFromFile():
