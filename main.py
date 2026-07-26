@@ -62,7 +62,7 @@ def FUCKTheAcademyoftheHebrewLanguage(NameOfClass):
         
     return(StringToBeRevesed)
 
-def AddTextToImage(Text, OutputFile):
+def AddTextToImage(Text, OutputFile, Year):
     StringForImage = ""
     for line in Text.splitlines():
         print(line[::-1])
@@ -70,7 +70,7 @@ def AddTextToImage(Text, OutputFile):
         # StringForImage += (line[::-1])+"\n"
         StringForImage += get_display(line)+"\n"
         
-    TextToIcon(StringForImage, "Template.png", "fonts/Alef-Bold.ttf", OutputFile)
+    TextToIcon(StringForImage+Year, "Template.png", "fonts/Alef-Bold.ttf", OutputFile)
 
 
 def GetCourseFromFile():
@@ -86,4 +86,4 @@ for Course in CourseList:
     # TextForImage = get_display(CourseName)
     TextForImage = FUCKTheAcademyoftheHebrewLanguage(CourseName)
 
-    AddTextToImage(TextForImage, Course+".png")
+    AddTextToImage(TextForImage, Course+".png", "2026-2027")
