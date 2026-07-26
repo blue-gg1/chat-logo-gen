@@ -1,7 +1,7 @@
 import textwrap, requests, cv2, json
 from PIL import Image, ImageFont, ImageDraw
 import numpy as np
-
+from bidi.algorithm import get_display
 
 
 def TextToIcon(Text, TemplateImage, Font, FilePath):
@@ -70,7 +70,7 @@ def AddTextToImmage(Text, OutputFile):
     for line in Text.splitlines():
         print(line[::-1])
         StringForImage += (line[::-1])+"\n"
-    TextToIcon(StringForImage, "Template.png", "fonts/Huji-Bold.otf", OutputFile)
+    TextToIcon(StringForImage, "Template.png", "fonts/Alef-Bold.ttf", OutputFile)
 
 
 def GetCourseFromFile():
