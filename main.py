@@ -47,8 +47,9 @@ def FUCKTheAcademyoftheHebrewLanguage(NameOfClass):
     StringToBeRevesed = (((NameOfClass).replace(' ', '\n')).replace('(',"}").replace(')',"{")).replace("","")
 
 
-    with open("FUCKME.txt", "w") as FUCKME:
+    with open("FUCKME.txt", "a", encoding="utf-8") as FUCKME:
         FUCKME.writelines(StringToBeRevesed)
+    FUCKME.close
         
     return(StringToBeRevesed)
 
