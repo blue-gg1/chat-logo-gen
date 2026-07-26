@@ -28,9 +28,12 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
         fill="white",
         # (255,255,255), # opacity in rbg ?
         font=monospace, # which font
-        # align='right'
+        align='right',
         anchor="la"
         ) 
+    draw.ellipse(
+        (995, -5, 1005, 5), 
+        fill="red")
 
     # #Save image
     result_o = np.array(im_p)
