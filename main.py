@@ -1,6 +1,7 @@
 import textwrap, requests, cv2, json
 from PIL import Image, ImageFont, ImageDraw
 import numpy as np
+from random import randint
 from bidi.algorithm import get_display
 
 
@@ -20,7 +21,7 @@ def TextToIcon(Text, TemplateImage, Font, FilePath, CourseSeed):
 
     draw.ellipse(
         (20, 20, 1000, 1000), 
-        fill = (255,255,255), 
+        fill = (randint(0,255),randint(0,255),randint(0,255)), 
         outline ='blue')
 
     draw.multiline_text(
