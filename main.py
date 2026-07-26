@@ -94,7 +94,7 @@ def AddTextToImageAndDealWithString(Text, OutputFile, Year, CouseNumber):
         # StringForImage += (line[::-1])+"\n"
         StringForImage += get_display(line)+"\n" # revese the string in a way that does not change any latin text
         
-    TextToIcon(StringForImage+Year, "Template.png", "fonts/david.ttf", OutputFile, CouseNumber)
+    TextToIcon(StringForImage+Year, "Template.png", "fonts/frank.ttf", OutputFile, CouseNumber)
 
 def GetCourseFromFile():
     # read the file from disk.
