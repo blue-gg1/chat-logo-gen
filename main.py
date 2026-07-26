@@ -28,7 +28,7 @@ def TextToIcon(Text, TemplateImage, Font, FilePath, CourseSeed):
         (20, 20, 1000, 1000), 
         fill = (randint(0,255),randint(0,255),randint(0,255)), 
         outline = (randint(0,255),randint(0,255),randint(0,255)),
-        width=10
+        width=20
     )
 
     draw.multiline_text(
