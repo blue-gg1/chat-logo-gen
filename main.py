@@ -18,6 +18,8 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
     draw = ImageDraw.Draw(im_p)
     monospace = ImageFont.truetype(Font,125)
 
+    draw.ellipse((20, 20, 1000, 1000), fill = 'blue', outline ='blue')
+
     draw.multiline_text(
         # (im_p.width / 2, (im_p.height / 2)+40),
         (im_p.width / 2, (im_p.height / 2)),
