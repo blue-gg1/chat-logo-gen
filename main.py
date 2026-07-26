@@ -71,7 +71,7 @@ def AddTextToImmage(Text, OutputFile):
         print(line[::-1])
         # StringForImage += (line[::-1])+"\n"
         # StringForImage += (line[::-1])+"\n"
-        StringForImage += get_display(line)
+        StringForImage += get_display(line)+"\n"
         
     TextToIcon(StringForImage, "Template.png", "fonts/Alef-Bold.ttf", OutputFile)
 
