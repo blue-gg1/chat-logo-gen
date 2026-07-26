@@ -49,7 +49,7 @@ def GetNamesFromShnaton(CourseNumber: int, Year: int):
 def FUCKTheAcademyoftheHebrewLanguage(NameOfClass):
     # StringToBeRevesed = ((NameOfClass[0]['name']['he']).replace(' ', '\n')).replace('(',"}").replace(')',"{")
     
-    StringToBeRevesed = (((NameOfClass).replace(' ', '\n')).replace('(',"}").replace(')',"{")).replace("","")
+    StringToBeRevesed = (((NameOfClass).replace(' ', '\n')).replace('(',"").replace(')',"")).replace("","")
 
 
     with open("FUCKME.txt", "a", encoding="utf-8") as FUCKME:
@@ -63,7 +63,7 @@ def AddTextToImmage(Text, OutputFile):
     for line in Text.splitlines():
         print(line[::-1])
         StringForImage += (line[::-1])+"\n"
-    TextToIcon(StringForImage, "Template.png", "fonts/David Regular.TTF", OutputFile)
+    TextToIcon(StringForImage, "Template.png", "fonts/Haim new.ttf", OutputFile)
 
 
 def GetCourseFromFile():
