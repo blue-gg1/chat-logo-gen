@@ -18,7 +18,7 @@ def TextToIcon(Text, TemplateImage, Font, FilePath):
     monospace = ImageFont.truetype(Font,125)
 
     draw.multiline_text(
-        (im_p.width / 2, (im_p.height / 2)+30),
+        (im_p.width / 2, (im_p.height / 2)+40),
         Text,
         fill="white",
         font=monospace,
