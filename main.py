@@ -6,8 +6,9 @@ from bidi.algorithm import get_display
 
 def TextToIcon(Text, TemplateImage, Font, FilePath):
     # Open image with OpenCV
-    # im_o = np.zeros((1000,1000,3), np.uint8)
-    im_o = cv2.imread(TemplateImage)
+    im_o = np.zeros((1000,1000,3), np.uint8)
+
+    # im_o = cv2.imread(TemplateImage)
 
 
     # Make into PIL Image
