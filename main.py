@@ -25,7 +25,7 @@ def TextToIcon(Text, TemplateImage, Font, FilePath, CourseSeed):
 
     draw.ellipse( # draw the main circle 
         (20, 20, 1000, 1000), # circle covers the entire image 
-        fill = (randint(20,255),randint(20,255),randint(20,255)),  # random colour for the circle
+        fill = (randint(20,255),randint(20,255),randint(20,255)),  # random colour for the circle. make it a not too dark pallet.
         outline = (randint(0,255),randint(0,255),randint(0,255)), # random colour for the outline 
         width=20
     )
