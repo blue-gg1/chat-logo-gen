@@ -200,19 +200,6 @@ def ClankerGetTestDateFromShnaton(ShnatonId: int, Year: int):
 
 
 
-def RetriveData(Course, Year):
-    print(Course)
-    CourseName = GetNamesFromShnaton(Course, Year) # year is used for the api
-    ShnatonId = GetShnatonIdFromShnaton(Course, Year)
-    BothSemester = GetDoubleSemesterFromShnaton(Course, Year)
-
-    TestDates = ClankerGetTestDateFromShnaton(ShnatonId, Year)
-
-    # if BothSemester == "SemAB":
-    #     print("SemAB")
-    # else: 
-    #     print(BothSemester)
-    #     GetTestDateFromShnaton(ShnatonId, Year)
 
 
 def ClankerRetriveData(Course, Year):
@@ -235,9 +222,17 @@ def ClankerRetriveData(Course, Year):
 
 def main(Year, FileName):
     CourseList = GetCourseFromFile(FileName)
+
+  
+
+
     rows = []
 
     for Course in CourseList:
+        TextForImage = StringCleaner(Course)
+        print(TextForImage)
+        AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
+        
         try:
             data = ClankerRetriveData(Course, Year)
             rows.append(data)
@@ -252,8 +247,7 @@ def main(Year, FileName):
     print(df)
 
     df.to_csv("courses.csv", index=False, encoding="utf-8-sig")
-    TextForImage = StringCleaner(CourseList["CourseName"])
 
-    AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
+
 
 main(2026, "Source")
