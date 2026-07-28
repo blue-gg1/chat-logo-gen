@@ -101,9 +101,9 @@ def AddTextToImageAndDealWithString(Text, OutputFile, Year, CouseNumber):
         
     TextToIcon(StringForImage+Year, "Template.png", "fonts/DavidLibre-Bold.ttf", OutputFile, CouseNumber)
 
-def GetCourseFromFile():
+def GetCourseFromFile(FileName):
     # read the file from disk.
-    with open("source",'r') as SourceList:
+    with open(FileName,'r') as SourceList:
         SourceData = SourceList.read().splitlines()
     return(SourceData)
 
@@ -169,6 +169,8 @@ def GetShnatonIdFromShnaton(CourseNumber: int, Year: int):
 #         print("fuck")
 #         exit()
 #     return(TestDates)
+
+
 def ClankerGetTestDateFromShnaton(ShnatonId: int, Year: int):
     url = f"https://shnaton.huji.ac.il/api/assignments?year={Year}&courseId={ShnatonId}"
     response = requests.get(url)
@@ -225,6 +227,7 @@ def ClankerRetriveData(Course, Year):
     TestDates = ClankerGetTestDateFromShnaton(ShnatonId, Year)
 
     return {
+        "Year":Year,
         "Course": Course,
         "CourseName": CourseName,
         "ShnatonId": ShnatonId,
@@ -232,28 +235,25 @@ def ClankerRetriveData(Course, Year):
         "TestDates": TestDates,
     }
 
-CourseList = GetCourseFromFile()
 
-rows = []
+def main(Year, FileName):
+    CourseList = GetCourseFromFile(FileName)
+    rows = []
 
-for Course in CourseList:
-    try:
-        data = ClankerRetriveData(Course, 2026)
-        rows.append(data)
-        print(rows)
-        print(type(rows))
+    for Course in CourseList:
+        try:
+            data = ClankerRetriveData(Course, Year)
+            rows.append(data)
+            print(rows)
+            print(type(rows))
 
-    except Exception:
-        import traceback
-        traceback.print_exc()
+        except Exception:
+            import traceback
+            traceback.print_exc()
 
-df = pd.DataFrame(rows)
-print(df)
+    df = pd.DataFrame(rows)
+    print(df)
 
-df.to_csv("courses.csv", index=False, encoding="utf-8-sig")
+    df.to_csv("courses.csv", index=False, encoding="utf-8-sig")
 
-
-# for Course in CourseList:
-#     ClankerRetriveData(Course, 2026)
-    
-    
+main(2027, "Source")
