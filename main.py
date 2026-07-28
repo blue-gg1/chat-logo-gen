@@ -112,9 +112,12 @@ def GetTestDateFromShnaton(CourseNumber: int, Year: int):
     if ShnatonJson.status_code == 200: # dont trip over the network TODO: make this an assert.
         ShnatonJsonObject = json.loads(ShnatonJson.content)
         ShnatonId = ShnatonJsonObject[0]['id']   
-        print(ShnatonId) 
+        print(ShnatonId)
     else:
         exit()
+
+    print(ShnatonJsonObject[0]['coursePeriodName']['en'])
+    
 
     ShnatonTestJson = requests.get("https://shnaton.huji.ac.il/api/assignments?year="+str(Year)+"&courseId="+str(ShnatonId))
 
