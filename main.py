@@ -4,7 +4,7 @@ import numpy as np
 from random import randint
 from bidi.algorithm import get_display
 import pandas as pd
-
+import pprint
 
 
 def TextToIcon(Text, TemplateImage, Font, FilePath, CourseSeed):
@@ -146,30 +146,45 @@ def GetShnatonIdFromShnaton(CourseNumber: int, Year: int):
 
 
 
-def GetTestDateFromShnaton(ShnatonId: int, Year: int):
-    ShnatonTestJson = requests.get("https://shnaton.huji.ac.il/api/assignments?year="+str(Year)+"&courseId="+str(ShnatonId))
+# def GetTestDateFromShnaton(ShnatonId: int, Year: int):
+#     ShnatonTestJson = requests.get("https://shnaton.huji.ac.il/api/assignments?year="+str(Year)+"&courseId="+str(ShnatonId))
 
-    ShnatonJsonObject = json.loads(ShnatonTestJson.content)
+#     ShnatonJsonObject = json.loads(ShnatonTestJson.content)
 
+
+#     TestDates = []
+#     if ShnatonJsonObject[1]["assignmentDefinition"]["name"]["en"] == "Written test":
+#         print("cool")
+#         print('\r\n')
+#         for schedule in ShnatonJsonObject[1]["schedules"]:
+#             print(schedule["startTime"])
+#             TestDates.append(schedule["startTime"])
+#     elif ShnatonJsonObject[1]["assignmentDefinition"]["name"]["en"] == "Mid-term Exams":
+#         print(ShnatonJsonObject[3]["assignmentDefinition"]["name"]["en"])
+#         for schedule in ShnatonJsonObject[3]["schedules"]:
+#             print(schedule["startTime"])
+#             TestDates.append(schedule["startTime"])
+
+#     else:
+#         print("fuck")
+#         exit()
+#     return(TestDates)
+def ClankerGetTestDateFromShnaton(ShnatonId: int, Year: int):
+    url = f"https://shnaton.huji.ac.il/api/assignments?year={Year}&courseId={ShnatonId}"
+    response = requests.get(url)
+    assignments = response.json()
 
     TestDates = []
-    if ShnatonJsonObject[1]["assignmentDefinition"]["name"]["en"] == "Written test":
-        print("cool")
-        print('\r\n')
-        for schedule in ShnatonJsonObject[1]["schedules"]:
-            print(schedule["startTime"])
-            TestDates.append(schedule["startTime"])
-    elif ShnatonJsonObject[1]["assignmentDefinition"]["name"]["en"] == "Mid-term Exams":
-        print(ShnatonJsonObject[3]["assignmentDefinition"]["name"]["en"])
-        for schedule in ShnatonJsonObject[3]["schedules"]:
-            print(schedule["startTime"])
-            TestDates.append(schedule["startTime"])
 
-    else:
-        print("fuck")
-        exit()
-    return(TestDates)
+    for assignment in assignments:
+        name = assignment["assignmentDefinition"]["name"]["en"]
 
+        if name in ("Written test", "Mid-term Exams"):
+            for schedule in assignment.get("schedules", []):
+                TestDates.append(schedule["startTime"])
+    pprint.pp(assignments)
+
+    return TestDates
 
 
 
@@ -189,7 +204,7 @@ def RetriveData(Course, Year):
     ShnatonId = GetShnatonIdFromShnaton(Course, Year)
     BothSemester = GetDoubleSemesterFromShnaton(Course, Year)
 
-    TestDates = GetTestDateFromShnaton(ShnatonId, Year)
+    TestDates = ClankerGetTestDateFromShnaton(ShnatonId, Year)
 
     # if BothSemester == "SemAB":
     #     print("SemAB")
@@ -207,7 +222,7 @@ def ClankerRetriveData(Course, Year):
     CourseName = GetNamesFromShnaton(Course, Year)
     ShnatonId = GetShnatonIdFromShnaton(Course, Year)
     BothSemester = GetDoubleSemesterFromShnaton(Course, Year)
-    TestDates = GetTestDateFromShnaton(ShnatonId, Year)
+    TestDates = ClankerGetTestDateFromShnaton(ShnatonId, Year)
 
     return {
         "Course": Course,
