@@ -256,4 +256,4 @@ def main(Year, FileName):
 
     df.to_csv("courses.csv", index=False, encoding="utf-8-sig")
 
-main(2027, "Source")
+main(2026, "Source")
