@@ -111,12 +111,25 @@ def GetTestDateFromShnaton(CourseNumber: int, Year: int):
 
     if ShnatonJson.status_code == 200: # dont trip over the network TODO: make this an assert.
         ShnatonJsonObject = json.loads(ShnatonJson.content)
-        ShnatonId = ShnatonJsonObject[0]['id']    
+        ShnatonId = ShnatonJsonObject[0]['id']   
+        print(ShnatonId) 
     else:
         exit()
 
     ShnatonTestJson = requests.get("https://shnaton.huji.ac.il/api/assignments?year="+str(Year)+"&courseId="+str(ShnatonId))
-    print(ShnatonTestJson)
+
+    ShnatonJsonObject = json.loads(ShnatonTestJson.content)
+
+
+    if ShnatonJsonObject[1]["assignmentDefinition"]["name"]["en"] == "Written test":
+        print("cool")
+        print('\r\n')
+        print(ShnatonJsonObject[1]["assignmentDefinition"]["name"]["en"])
+
+    else:
+        print("fuck")
+        exit()
+
 
 
 
@@ -132,8 +145,8 @@ def GetTestDateFromShnaton(CourseNumber: int, Year: int):
 CourseList = GetCourseFromFile()
 for Course in CourseList:
     print(Course)
-    CourseName = GetNamesFromShnaton(Course, 2026) # year is used for the api
-    ShnatonId = GetTestDateFromShnaton(Course, 2026)
+    CourseName = GetNamesFromShnaton(Course, 2025) # year is used for the api
+    ShnatonId = GetTestDateFromShnaton(Course, 2025)
 
     print(CourseName)
 
