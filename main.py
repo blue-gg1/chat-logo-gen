@@ -158,7 +158,11 @@ def GetTestDateFromShnaton(ShnatonId: int, Year: int):
             print(ShnatonJsonObject[1]["schedules"][TestNumber]["startTime"])
             TestNumber += 1
     elif ShnatonJsonObject[1]["assignmentDefinition"]["name"]["en"] == "Mid-term Exams":
-        print(ShnatonJsonObject[1]["assignmentDefinition"]["name"]["en"])
+        print(ShnatonJsonObject[3]["assignmentDefinition"]["name"]["en"])
+        TestNumber = 0
+        for i in ShnatonJsonObject[3]["schedules"]:
+            print(ShnatonJsonObject[3]["schedules"][TestNumber]["startTime"])
+            TestNumber += 1
 
     else:
         print("fuck")
