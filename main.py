@@ -104,7 +104,7 @@ def GetCourseFromFile():
         SourceData = SourceList.read().splitlines()
     return(SourceData)
 
-def GetTestDateFromShnaton(CourseNumber: int, Year: int):
+def GetDoubleSemesterFromShnaton(CourseNumber: int, Year: int):
     # get the json from the shanton:
     # TODO: fake headers to look like a browser (only needed if blocked.)
     ShnatonJson = requests.get("https://shnaton.huji.ac.il/api/courses/code/"+CourseNumber+"?year="+str(Year)) 
@@ -116,9 +116,26 @@ def GetTestDateFromShnaton(CourseNumber: int, Year: int):
     else:
         exit()
 
-    print(ShnatonJsonObject[0]['coursePeriodName']['en'])
+    if (ShnatonJsonObject[0]['coursePeriodName']['en']) == "Semester A or B":
+        BothSemester = True
+    elif (ShnatonJsonObject[0]['coursePeriodName']['en']) == "Semester A or B":
+        BothSemester = False
+    else:
+        exit()
+    print(BothSemester)
     
 
+def GetTestDateFromShnaton(CourseNumber: int, Year: int):
+    # get the json from the shanton:
+    # TODO: fake headers to look like a browser (only needed if blocked.)
+    ShnatonJson = requests.get("https://shnaton.huji.ac.il/api/courses/code/"+CourseNumber+"?year="+str(Year)) 
+
+    if ShnatonJson.status_code == 200: # dont trip over the network TODO: make this an assert.
+        ShnatonJsonObject = json.loads(ShnatonJson.content)
+        ShnatonId = ShnatonJsonObject[0]['id']   
+        print(ShnatonId)
+    else:
+        exit()
     ShnatonTestJson = requests.get("https://shnaton.huji.ac.il/api/assignments?year="+str(Year)+"&courseId="+str(ShnatonId))
 
     ShnatonJsonObject = json.loads(ShnatonTestJson.content)
@@ -156,7 +173,7 @@ for Course in CourseList:
     print(Course)
     CourseName = GetNamesFromShnaton(Course, 2025) # year is used for the api
     ShnatonId = GetTestDateFromShnaton(Course, 2025)
-
+    GetDoubleSemesterFromShnaton(Course, 2025)
     print(CourseName)
 
 
