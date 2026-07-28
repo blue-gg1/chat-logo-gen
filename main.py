@@ -124,7 +124,6 @@ def GetDoubleSemesterFromShnaton(CourseNumber: int, Year: int):
         BothSemester = "SemB"
     else:
         exit()
-    print(BothSemester)
     return(BothSemester)
     
 
@@ -136,7 +135,6 @@ def GetShnatonIdFromShnaton(CourseNumber: int, Year: int):
     if ShnatonJson.status_code == 200: # dont trip over the network TODO: make this an assert.
         ShnatonJsonObject = json.loads(ShnatonJson.content)
         ShnatonId = ShnatonJsonObject[0]['id']   
-        print(ShnatonId)
     else:
         exit()
     return(ShnatonId)
@@ -144,7 +142,7 @@ def GetShnatonIdFromShnaton(CourseNumber: int, Year: int):
 
 
 
-def GetTestDateFromShnaton(CourseNumber: int, Year: int):
+def GetTestDateFromShnaton(ShnatonId: int, Year: int):
     ShnatonTestJson = requests.get("https://shnaton.huji.ac.il/api/assignments?year="+str(Year)+"&courseId="+str(ShnatonId))
 
     ShnatonJsonObject = json.loads(ShnatonTestJson.content)
@@ -180,8 +178,14 @@ def MainLoop(Course, Year):
     print(Course)
     CourseName = GetNamesFromShnaton(Course, Year) # year is used for the api
     ShnatonId = GetShnatonIdFromShnaton(Course, Year)
-    GetDoubleSemesterFromShnaton(Course, Year)
-    print(CourseName)
+    BothSemester = GetDoubleSemesterFromShnaton(Course, Year)
+
+    if BothSemester == "SemAB":
+        print("SemAB")
+    elif BothSemester == "SemA":
+        print("SemA")
+    elif BothSemester == "SemB":
+        print("SemB")
 
     # TextForImage = StringCleaner(CourseName)
 
