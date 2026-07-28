@@ -214,9 +214,6 @@ def RetriveData(Course, Year):
     #     print(BothSemester)
     #     GetTestDateFromShnaton(ShnatonId, Year)
 
-    # TextForImage = StringCleaner(CourseName)
-
-    # AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
 
 def ClankerRetriveData(Course, Year):
     print(Course)
@@ -255,5 +252,8 @@ def main(Year, FileName):
     print(df)
 
     df.to_csv("courses.csv", index=False, encoding="utf-8-sig")
+    TextForImage = StringCleaner(CourseList["CourseName"])
+
+    AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
 
 main(2026, "Source")
