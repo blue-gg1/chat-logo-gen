@@ -238,16 +238,20 @@ rows = []
 
 for Course in CourseList:
     try:
-        data = RetriveData(Course, 2026)
-        print(data)
+        data = ClankerRetriveData(Course, 2026)
         rows.append(data)
+        print(rows)
+        print(type(rows))
+
     except Exception:
         import traceback
         traceback.print_exc()
 
 df = pd.DataFrame(rows)
 print(df)
-df.to_csv("courses.csv", index=False)
+
+df.to_csv("courses.csv", index=False, encoding="utf-8-sig")
+
 
 # for Course in CourseList:
 #     ClankerRetriveData(Course, 2026)
