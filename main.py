@@ -118,11 +118,12 @@ def GetDoubleSemesterFromShnaton(CourseNumber: int, Year: int):
 
     if (ShnatonJsonObject[0]['coursePeriodName']['en']) == "Semester A or B":
         BothSemester = True
-    elif (ShnatonJsonObject[0]['coursePeriodName']['en']) == "Semester A or B":
+    elif (ShnatonJsonObject[0]['coursePeriodName']['en']) == "Semester A":
         BothSemester = False
     else:
         exit()
     print(BothSemester)
+    return(BothSemester)
     
 
 def GetCouseIdFromShnaton(CourseNumber: int, Year: int):
@@ -161,11 +162,9 @@ def GetTestDateFromShnaton(CourseNumber: int, Year: int):
 
     ShnatonJsonObject = json.loads(ShnatonTestJson.content)
 
-
     if ShnatonJsonObject[1]["assignmentDefinition"]["name"]["en"] == "Written test":
         print("cool")
         print('\r\n')
-
         TestNumber = 0
         for i in ShnatonJsonObject[1]["schedules"]:
             print(TestNumber)
@@ -190,9 +189,9 @@ def GetTestDateFromShnaton(CourseNumber: int, Year: int):
 CourseList = GetCourseFromFile()
 for Course in CourseList:
     print(Course)
-    CourseName = GetNamesFromShnaton(Course, 2025) # year is used for the api
-    ShnatonId = GetCouseIdFromShnaton(Course, 2025)
-    GetDoubleSemesterFromShnaton(Course, 2025)
+    CourseName = GetNamesFromShnaton(Course, 2026) # year is used for the api
+    ShnatonId = GetCouseIdFromShnaton(Course, 2026)
+    GetDoubleSemesterFromShnaton(Course, 2026)
     print(CourseName)
 
 
