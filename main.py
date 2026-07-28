@@ -188,18 +188,6 @@ def GetTestDateFromShnaton(ShnatonId: int, Year: int):
 #     AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
 
 
-def AddToDataFrame(Year, CourseNumber, CourseName, ShantonId, Semester, TestDates):
-    Data = {
-        Year,
-        CourseNumber,
-        CourseName,
-        ShantonId,
-        Semester,
-        TestDates
-    }
-    df = pd.DataFrame(Data)
-    print(df)
-
 
 def RetriveData(Course, Year):
     print(Course)
@@ -219,12 +207,39 @@ def RetriveData(Course, Year):
 
     # AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
 
-    AddToDataFrame(2026, Course, ShnatonId, BothSemester, BothSemester, TestDates)
+def ClankerRetriveData(Course, Year):
+    print(Course)
 
+    CourseName = GetNamesFromShnaton(Course, Year)
+    ShnatonId = GetShnatonIdFromShnaton(Course, Year)
+    BothSemester = GetDoubleSemesterFromShnaton(Course, Year)
+    TestDates = GetTestDateFromShnaton(ShnatonId, Year)
 
+    return {
+        "Course": Course,
+        "CourseName": CourseName,
+        "ShnatonId": ShnatonId,
+        "Semester": BothSemester,
+        "TestDates": TestDates,
+    }
 
 CourseList = GetCourseFromFile()
 
+rows = []
+
 for Course in CourseList:
-    RetriveData(Course, 2026)
+    try:
+        rows.append(RetriveData(Course, 2026))
+    except Exception as e:
+        print(f"Failed to retrieve {Course}: {e}")
+
+df = pd.DataFrame(rows)
+
+print(df)
+
+df.to_csv("courses.csv", index=False, encoding="utf-8-sig")
+
+# for Course in CourseList:
+#     ClankerRetriveData(Course, 2026)
+    
     
