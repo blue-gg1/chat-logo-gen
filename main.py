@@ -173,15 +173,23 @@ def GetTestDateFromShnaton(CourseNumber: int, Year: int):
 
 #     AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
 
-CourseList = GetCourseFromFile()
-for Course in CourseList:
-    print(Course)
-    CourseName = GetNamesFromShnaton(Course, 2026) # year is used for the api
-    ShnatonId = GetShnatonIdFromShnaton(Course, 2026)
-    GetDoubleSemesterFromShnaton(Course, 2026)
-    print(CourseName)
 
+
+
+def MainLoop(Course, Year):
+    print(Course)
+    CourseName = GetNamesFromShnaton(Course, Year) # year is used for the api
+    ShnatonId = GetShnatonIdFromShnaton(Course, Year)
+    GetDoubleSemesterFromShnaton(Course, Year)
+    print(CourseName)
 
     # TextForImage = StringCleaner(CourseName)
 
     # AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
+
+
+
+CourseList = GetCourseFromFile()
+
+for Course in CourseList:
+    MainLoop(Course, 2026)
