@@ -184,7 +184,7 @@ def ClankerGetTestDateFromShnaton(ShnatonId: int, Year: int):
                 TestDates.append(schedule["startTime"])
     pprint.pp(assignments)
 
-    return TestDates
+    return(TestDates)
 
 
 
