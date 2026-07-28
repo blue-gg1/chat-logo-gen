@@ -104,14 +104,39 @@ def GetCourseFromFile():
         SourceData = SourceList.read().splitlines()
     return(SourceData)
 
+def GetTestDateFromShnaton(CourseNumber: int, Year: int):
+    # get the json from the shanton:
+    # TODO: fake headers to look like a browser (only needed if blocked.)
+    ShnatonJson = requests.get("https://shnaton.huji.ac.il/api/courses/code/"+CourseNumber+"?year="+str(Year)) 
 
+    if ShnatonJson.status_code == 200: # dont trip over the network TODO: make this an assert.
+        ShantonObject = json.loads(ShnatonJson.content)
+        if ShantonObject[0]['code'] == CourseNumber: # make sure we got the right course. TODO: make this an assert.
+            print(CourseNumber + "good")
+        else:
+            print(CourseNumber + "bad")
+            exit()
+        return(ShantonObject[0]['name']['he'])
+    else:
+        exit()
+
+
+
+# for Course in CourseList:
+#     print(Course)
+#     CourseName = GetNamesFromShnaton(Course, 2027) # year is used for the api
+#     # TextForImage = get_display(CourseName)
+#     TextForImage = StringCleaner(CourseName)
+
+#     AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
 
 CourseList = GetCourseFromFile()
-
 for Course in CourseList:
     print(Course)
     CourseName = GetNamesFromShnaton(Course, 2027) # year is used for the api
-    # TextForImage = get_display(CourseName)
-    TextForImage = StringCleaner(CourseName)
+    print(CourseName)
 
-    AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
+
+    # TextForImage = StringCleaner(CourseName)
+
+    # AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
