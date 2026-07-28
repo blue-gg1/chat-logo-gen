@@ -124,7 +124,10 @@ def GetTestDateFromShnaton(CourseNumber: int, Year: int):
     if ShnatonJsonObject[1]["assignmentDefinition"]["name"]["en"] == "Written test":
         print("cool")
         print('\r\n')
-        print(ShnatonJsonObject[1]["assignmentDefinition"]["name"]["en"])
+        print(ShnatonJsonObject[1]["schedules"][0]["startTime"])
+        print(ShnatonJsonObject[1]["schedules"][1]["startTime"])
+        print(ShnatonJsonObject[1]["schedules"][2]["startTime"])
+        print(ShnatonJsonObject[1]["schedules"][3]["startTime"])
 
     else:
         print("fuck")
