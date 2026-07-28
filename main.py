@@ -128,7 +128,7 @@ def GetDoubleSemesterFromShnaton(CourseNumber: int, Year: int):
     return(BothSemester)
     
 
-def GetCouseIdFromShnaton(CourseNumber: int, Year: int):
+def GetShnatonIdFromShnaton(CourseNumber: int, Year: int):
     # get the json from the shanton:
     # TODO: fake headers to look like a browser (only needed if blocked.)
     ShnatonJson = requests.get("https://shnaton.huji.ac.il/api/courses/code/"+CourseNumber+"?year="+str(Year)) 
@@ -139,24 +139,9 @@ def GetCouseIdFromShnaton(CourseNumber: int, Year: int):
         print(ShnatonId)
     else:
         exit()
-    ShnatonTestJson = requests.get("https://shnaton.huji.ac.il/api/assignments?year="+str(Year)+"&courseId="+str(ShnatonId))
-
-    ShnatonJsonObject = json.loads(ShnatonTestJson.content)
+    return(ShnatonId)
 
 
-    if ShnatonJsonObject[1]["assignmentDefinition"]["name"]["en"] == "Written test":
-        print("cool")
-        print('\r\n')
-
-        TestNumber = 0
-        for i in ShnatonJsonObject[1]["schedules"]:
-            print(TestNumber)
-            print(ShnatonJsonObject[1]["schedules"][TestNumber]["startTime"])
-            TestNumber += 1
-
-    else:
-        print("fuck")
-        exit()
 
 
 def GetTestDateFromShnaton(CourseNumber: int, Year: int):
@@ -192,7 +177,7 @@ CourseList = GetCourseFromFile()
 for Course in CourseList:
     print(Course)
     CourseName = GetNamesFromShnaton(Course, 2026) # year is used for the api
-    ShnatonId = GetCouseIdFromShnaton(Course, 2026)
+    ShnatonId = GetShnatonIdFromShnaton(Course, 2026)
     GetDoubleSemesterFromShnaton(Course, 2026)
     print(CourseName)
 
