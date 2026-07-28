@@ -157,6 +157,8 @@ def GetTestDateFromShnaton(ShnatonId: int, Year: int):
             print(TestNumber)
             print(ShnatonJsonObject[1]["schedules"][TestNumber]["startTime"])
             TestNumber += 1
+    elif ShnatonJsonObject[1]["assignmentDefinition"]["name"]["en"] == "Mid-term Exams":
+        print(ShnatonJsonObject[1]["assignmentDefinition"]["name"]["en"])
 
     else:
         print("fuck")
@@ -182,12 +184,13 @@ def MainLoop(Course, Year):
     ShnatonId = GetShnatonIdFromShnaton(Course, Year)
     BothSemester = GetDoubleSemesterFromShnaton(Course, Year)
 
+    GetTestDateFromShnaton(ShnatonId, Year)
+
     if BothSemester == "SemAB":
         print("SemAB")
-    elif BothSemester == "SemA":
-        print("SemA")
-    elif BothSemester == "SemB":
-        print("SemB")
+    else: 
+        print(BothSemester)
+        GetTestDateFromShnaton(ShnatonId, Year)
 
     # TextForImage = StringCleaner(CourseName)
 
