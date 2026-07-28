@@ -117,9 +117,11 @@ def GetDoubleSemesterFromShnaton(CourseNumber: int, Year: int):
         exit()
 
     if (ShnatonJsonObject[0]['coursePeriodName']['en']) == "Semester A or B":
-        BothSemester = True
+        BothSemester = "SemAB"
     elif (ShnatonJsonObject[0]['coursePeriodName']['en']) == "Semester A":
-        BothSemester = False
+        BothSemester = "SemA"
+    elif (ShnatonJsonObject[0]['coursePeriodName']['en']) == "Semester B":
+        BothSemester = "SemB"
     else:
         exit()
     print(BothSemester)
