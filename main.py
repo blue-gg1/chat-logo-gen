@@ -182,7 +182,7 @@ def ClankerGetTestDateFromShnaton(ShnatonId: int, Year: int):
         if name in ("Written test", "Mid-term Exams"):
             for schedule in assignment.get("schedules", []):
                 TestDates.append(schedule["startTime"])
-    pprint.pp(assignments)
+    # pprint.pp(assignments)
 
     return(TestDates)
 
