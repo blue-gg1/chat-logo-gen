@@ -72,6 +72,7 @@ def GetNamesFromShnaton(CourseNumber: int, Year: int):
             print(CourseNumber + "good")
         else:
             print(CourseNumber + "bad")
+            print("page is not 200, abort")
             exit()
         return(ShantonObject[0]['name']['he'])
     else:
@@ -114,6 +115,7 @@ def GetDoubleSemesterFromShnaton(CourseNumber: int, Year: int):
         ShnatonId = ShnatonJsonObject[0]['id']   
         print(ShnatonId)
     else:
+        print("page is not 200, abort")
         exit()
 
     if (ShnatonJsonObject[0]['coursePeriodName']['en']) == "Semester A or B":
