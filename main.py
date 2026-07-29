@@ -121,17 +121,22 @@ def GetDoubleSemesterFromShnaton(CourseNumber: int, Year: int):
         print("page is not 200, abort")
         exit()
 
-    if (ShnatonJsonObject[0]['coursePeriodName']['en']) == "Semester A or B":
+    try:
+        if (ShnatonJsonObject[0]['coursePeriodName']['en']) == "Semester A or B":
         BothSemester = "SemAB"
-    elif (ShnatonJsonObject[0]['coursePeriodName']['en']) == "Semester A":
-        BothSemester = "SemA"
-    elif (ShnatonJsonObject[0]['coursePeriodName']['en']) == "Semester B":
-        BothSemester = "SemB"
-    else:
+        elif (ShnatonJsonObject[0]['coursePeriodName']['en']) == "Semester A":
+            BothSemester = "SemA"
+        elif (ShnatonJsonObject[0]['coursePeriodName']['en']) == "Semester B":
+            BothSemester = "SemB"
+        else:
+            BothSemester = False
+            print('semster issue. is the class given?')
+            # exit()
+            pass
+    except:
         BothSemester = False
         print('semster issue. is the class given?')
         # exit()
-        pass
     return(BothSemester)
     
 
