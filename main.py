@@ -129,7 +129,8 @@ def GetDoubleSemesterFromShnaton(CourseNumber: int, Year: int):
         BothSemester = "SemB"
     else:
         print('semster issue. is the class given?')
-        exit()
+        # exit()
+        pass
     return(BothSemester)
     
 
