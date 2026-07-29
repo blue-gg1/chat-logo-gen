@@ -74,10 +74,11 @@ def GetNamesFromShnaton(CourseNumber: int, Year: int):
             print(CourseNumber + "good")
         else:
             print(CourseNumber + "bad")
-            print("page is not 200, abort")
+            print("issue with the shanton id abort.")
             exit()
         return(ShantonObject[0]['name']['he'])
     else:
+        print("page is not 200, abort")
         exit()
 
 def StringCleaner(NameOfClass):
@@ -127,6 +128,7 @@ def GetDoubleSemesterFromShnaton(CourseNumber: int, Year: int):
     elif (ShnatonJsonObject[0]['coursePeriodName']['en']) == "Semester B":
         BothSemester = "SemB"
     else:
+        print('semster issue. is the class given?')
         exit()
     return(BothSemester)
     
@@ -140,6 +142,7 @@ def GetShnatonIdFromShnaton(CourseNumber: int, Year: int):
         ShnatonJsonObject = json.loads(ShnatonJson.content)
         ShnatonId = ShnatonJsonObject[0]['id']   
     else:
+        print("shanton class id does not match")
         exit()
     return(ShnatonId)
 
