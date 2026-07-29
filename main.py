@@ -128,6 +128,7 @@ def GetDoubleSemesterFromShnaton(CourseNumber: int, Year: int):
     elif (ShnatonJsonObject[0]['coursePeriodName']['en']) == "Semester B":
         BothSemester = "SemB"
     else:
+        BothSemester = False
         print('semster issue. is the class given?')
         # exit()
         pass
