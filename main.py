@@ -227,22 +227,14 @@ def main(Year, FileName):
     rows = []
 
     for Course in CourseList:
-
-        print(CourseList)
-
-        TextForImage = StringCleaner(CourseList[2])
+        data = ClankerRetriveData(Course, Year)
+        TextForImage = StringCleaner(data["CourseName"])
         print(TextForImage)
         AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
         
-        try:
-            data = ClankerRetriveData(Course, Year)
-            rows.append(data)
-            print(rows)
-            print(type(rows))
-
-        except Exception:
-            import traceback
-            traceback.print_exc()
+        rows.append(data)
+        print(rows)
+        print(type(rows))
 
     df = pd.DataFrame(rows)
     print(df)
