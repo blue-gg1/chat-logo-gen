@@ -221,15 +221,16 @@ def ClankerRetriveData(Course, Year):
 
 
 def main(Year, FileName):
+
     CourseList = GetCourseFromFile(FileName)
-
-  
-
 
     rows = []
 
     for Course in CourseList:
-        TextForImage = StringCleaner(Course)
+
+        print(CourseList)
+
+        TextForImage = StringCleaner(CourseList[2])
         print(TextForImage)
         AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
         
