@@ -240,7 +240,7 @@ def main(Year, FileName):
         data = ClankerRetriveData(Course, Year)
         TextForImage = StringCleaner(data["CourseName"])
         print(TextForImage)
-        AddTextToImageAndDealWithString(TextForImage, Course+".png", "2025-2026", Course) # the year here is any text to be added to the bottom of the logo.
+        AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
         
         rows.append(data)
         print(rows)
@@ -253,4 +253,4 @@ def main(Year, FileName):
 
 
 
-main(2025, "Source")
+main(2027, "Source")
