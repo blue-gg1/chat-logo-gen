@@ -239,13 +239,21 @@ def main(Year, FileName):
     for Course in CourseList:
         data = ClankerRetriveData(Course, Year)
         TextForImage = StringCleaner(data["CourseName"])
-        print(TextForImage)
-        AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
-        
-        rows.append(data)
-        print(rows)
-        print(type(rows))
-
+        if data["Semester"] == "SemAB":
+            print(TextForImage)
+            AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
+            
+            rows.append(data)
+            rows.append(data)
+            print(rows)
+            print(type(rows))
+        else:
+            print(TextForImage)
+            AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
+            
+            rows.append(data)
+            print(rows)
+            print(type(rows))
     df = pd.DataFrame(rows)
     print(df)
 
