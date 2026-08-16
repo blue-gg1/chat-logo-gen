@@ -257,8 +257,8 @@ def main(Year, FileName):
     df = pd.DataFrame(rows)
     print(df)
 
-    df.to_csv("debug.csv", index=False, encoding="utf-8-sig")
+    df.to_csv("courses.csv", index=False, encoding="utf-8-sig")
 
 
 
-main(2027, "errata.txt")
+main(2027, "source.old.txt")
