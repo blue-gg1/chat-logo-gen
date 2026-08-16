@@ -242,8 +242,9 @@ def main(Year, FileName):
         if data["Semester"] == "SemAB":
             print(TextForImage)
             AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
+            # todo make this have diffrent SemA and SemB options.
             
-            rows.append(data)
+            rows.append(data) #cover both semesters in one swoop.
             rows.append(data)
             print(rows)
             print(type(rows))
