@@ -241,7 +241,7 @@ def main(Year, FileName):
         TextForImage = StringCleaner(data["CourseName"])
         if data["Semester"] == "SemAB":
             print(TextForImage)
-            # AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
+            AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
             
             rows.append(data)
             rows.append(data)
@@ -249,7 +249,7 @@ def main(Year, FileName):
             print(type(rows))
         else:
             print(TextForImage)
-            # AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
+            AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
             
             rows.append(data)
             print(rows)
