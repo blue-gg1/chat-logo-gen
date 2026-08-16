@@ -191,7 +191,7 @@ def ClankerGetTestDateFromShnaton(ShnatonId: int, Year: int):
     for assignment in assignments:
         name = assignment["assignmentDefinition"]["name"]["en"]
 
-        if name in ("Written test", "Mid-term Exams"):
+        if name in ("Written Exam", "Written test", "Mid-term Exams", "First partial test", "Second partial test", "Exam"):
             for schedule in assignment.get("schedules", []):
                 TestDates.append(schedule["startTime"])
     # pprint.pp(assignments)
@@ -257,8 +257,8 @@ def main(Year, FileName):
     df = pd.DataFrame(rows)
     print(df)
 
-    df.to_csv("courses.csv", index=False, encoding="utf-8-sig")
+    df.to_csv("debug.csv", index=False, encoding="utf-8-sig")
 
 
 
-main(2027, "source.old.txt")
+main(2027, "errata.txt")
