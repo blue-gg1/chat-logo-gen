@@ -242,7 +242,7 @@ def main(Year, FileName):
         TextForImage = StringCleaner(data["CourseName"])
         if data["Semester"] == "SemAB":
             print(TextForImage)
-            # AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
+            AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
             # todo make this have diffrent SemA and SemB options.
             
             rows.append(data) #cover both semesters in one swoop.
@@ -251,7 +251,7 @@ def main(Year, FileName):
             print(type(rows))
         else:
             print(TextForImage)
-            # AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
+            AddTextToImageAndDealWithString(TextForImage, Course+".png", "2026-2027", Course) # the year here is any text to be added to the bottom of the logo.
             
             rows.append(data)
             print(rows)
@@ -263,4 +263,10 @@ def main(Year, FileName):
 
 
 
-main(2027, "youforgot.txt")
+# main(2027, "youforgot.txt")
+
+
+def MakeMeLogo(String):
+    AddTextToImageAndDealWithString(String, String+".png", "2026-2027", "") # the year here is any text to be added to the bottom of the logo.
+
+MakeMeLogo("מתענייני בוועד מתמטיקה")
