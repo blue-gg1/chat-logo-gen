@@ -267,6 +267,8 @@ def main(Year, FileName):
 
 
 def MakeMeLogo(String):
-    AddTextToImageAndDealWithString(String, String+".png", "2026-2027", "") # the year here is any text to be added to the bottom of the logo.
+    AddTextToImageAndDealWithString(String, "Vaad"+".png", "2026-2027", "") # the year here is any text to be added to the bottom of the logo.
 
-MakeMeLogo("מתענייני וועד מתמטיקה")
+MakeMeLogo("""מתענייני
+ וועד 
+ מתמטיקה""")
